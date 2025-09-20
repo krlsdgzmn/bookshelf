@@ -1,43 +1,31 @@
-import LibraryBooks from "@mui/icons-material/LibraryBooks";
+import AutoStories from "@mui/icons-material/AutoStories";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Link, useLocation } from "react-router";
-import { links } from "../routes";
+import { Link } from "react-router";
 import {
-  activeLinkStyle,
   appBarStyles,
   leftBoxStyle,
-  linkStyle,
   titleStyle,
   toolbarStyle,
 } from "../styles/headerStyles";
+import DesktopLinks from "./DesktopLinks";
+import MobileMenuLinks from "./MobileMenuLinks";
 import ToggleThemeButton from "./ToggleThemeButton";
 
 export default function Header() {
-  const location = useLocation();
-
   return (
     <AppBar position="sticky" sx={appBarStyles} elevation={0}>
       <Toolbar sx={toolbarStyle}>
+        <MobileMenuLinks />
+
         <Box sx={leftBoxStyle}>
-          <LibraryBooks />
+          <AutoStories />
           <Typography component={Link} to={"/"} sx={titleStyle}>
             BOOKSHELF
           </Typography>
-
-          {links.map((link) => (
-            <Typography
-              component={Link}
-              to={link.path}
-              style={
-                location.pathname === link.path ? activeLinkStyle : linkStyle
-              }
-            >
-              {link.name}
-            </Typography>
-          ))}
+          <DesktopLinks />
         </Box>
 
         <ToggleThemeButton />
