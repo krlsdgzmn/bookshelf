@@ -15,7 +15,7 @@ import type { Book } from "../types";
 
 export default function RandomPage() {
   const [randomBooks, setRandomBooks] = useState<Book[]>([]);
-  const [currentSubjectIndex, setCurrentSubjectIndex] = useState(0);
+  const [currentSubjectIndex, setCurrentSubjectIndex] = useState(-1);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
