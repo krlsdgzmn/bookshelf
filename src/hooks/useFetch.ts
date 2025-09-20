@@ -25,10 +25,6 @@ export function useFetch() {
         setFiction(fictionRes.data.docs);
         setScience(scienceRes.data.docs);
         setHistory(historyRes.data.docs);
-        console.log(dailyRes.data);
-        console.log(fictionRes.data);
-        console.log(scienceRes.data);
-        console.log(historyRes.data);
       })
       .catch((err: AxiosError) => setError(err.message))
       .finally(() => setIsLoading(false));
