@@ -29,7 +29,14 @@ export default function Section(props: SectionProps) {
 
         {!props.isLoading &&
           props.books &&
-          props.books.map((book, i) => <BookCard key={i} book={book} />)}
+          props.books.map((book, i) => (
+            <BookCard
+              key={i}
+              index={++i}
+              book={book}
+              isTrending={props.isTrendingSection}
+            />
+          ))}
       </Grid>
     </Box>
   );

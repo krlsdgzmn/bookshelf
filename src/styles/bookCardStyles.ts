@@ -25,8 +25,29 @@ export const publishStyle = {
   color: "#9C9C9C",
   bottom: 14,
 };
+
+export const ratingStyle = {
+  display: "flex",
+  alignItems: "center",
+  position: "absolute",
+  color: "#9C9C9C",
+  gap: 0.75,
+  bottom: 14,
+  right: 14,
+};
+export const starStyle = { color: "orange", marginBottom: 0.25 };
 export const cardContentStyle = {
   height: "100%",
   width: "100%",
   position: "relative",
+};
+export const trendingStyle = {
+  backgroundColor: "rgba(20, 20, 20, 0.5)",
+  backdropFilter: "blur(5px)",
+  WebkitBackdropFilter: "blur(5px)",
+  position: "absolute",
+  top: 8,
+  left: 8,
+  color: "#DDD",
+  borderRadius: 1.5,
 };
