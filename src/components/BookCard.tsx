@@ -41,7 +41,11 @@ export default function BookCard(props: BookCardProps) {
           <CardMedia
             component="img"
             height="140"
-            image="https://placehold.co/800"
+            image={
+              props.book.cover_i
+                ? `https://covers.openlibrary.org/b/id/${props.book.cover_i}-M.jpg`
+                : "https://placehold.co/800"
+            }
           />
 
           <CardContent sx={cardContentStyle}>
