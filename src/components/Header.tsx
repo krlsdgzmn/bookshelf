@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link, useLocation } from "react-router";
-import { links } from "../router";
+import { links } from "../routes";
 import {
   activeLinkStyle,
   appBarStyles,

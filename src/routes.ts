@@ -17,6 +17,7 @@ export const links = [
 
 export const router = createBrowserRouter([
   {
+    path: "/",
     Component: Layout,
     ErrorBoundary: ErrorPage,
     children: links.map(({ name, ...rest }) => rest),
