@@ -1,50 +1,30 @@
 import Box from "@mui/material/Box";
-import Section from "../components/Section";
-import { useTrending } from "../hooks/useTrending";
-import { pageBoxStyle } from "../styles/globalStyles";
-import ErrorPage from "./ErrorPage";
 import FetchError from "../components/FetchError";
+import Section from "../components/Section";
+import { useFetch } from "../hooks/useFetch";
+import { pageBoxStyle } from "../styles/globalStyles";
 
 export default function TrendingPage() {
-  const { data: trending, isLoading, error } = useTrending();
+  const { daily, science, fiction, history, isLoading, error } = useFetch();
 
   const sections = [
-    {
-      title: "Trending Books Today",
-      books: trending,
-      isTrendingSection: true,
-      isLoading: isLoading,
-    },
-    {
-      title: "Popular Fiction",
-      books: trending,
-      isTrendingSection: false,
-      isLoading: isLoading,
-    },
-    {
-      title: "Science & Technology",
-      books: trending,
-      isTrendingSection: false,
-      isLoading: isLoading,
-    },
-    {
-      title: "History & Biography",
-      books: trending,
-      isTrendingSection: false,
-      isLoading: isLoading,
-    },
+    { title: "Trending Books Today", books: daily, isTrendingSection: true },
+    { title: "Popular Fiction", books: fiction },
+    { title: "Science & Technology", books: science },
+    { title: "History & Biography", books: history },
   ];
 
   if (!isLoading && error) return <FetchError error={error} />;
 
   return (
     <Box sx={pageBoxStyle}>
-      {sections.map((section) => (
+      {sections.map((section, index) => (
         <Section
+          key={index}
           title={section.title}
           books={section.books}
-          isLoading={section.isLoading}
-          isTrendingSection={section.isTrendingSection}
+          isLoading={isLoading}
+          isTrendingSection={section.isTrendingSection ?? false}
         />
       ))}
     </Box>
