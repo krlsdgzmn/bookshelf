@@ -12,7 +12,7 @@ export default function MobileMenuLinks() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
   return (
-    <Box sx={{ display: { xs: "flex", md: "none" } }}>
+    <Box sx={mobileMenuLinksStyle}>
       <IconButton
         onClick={(event) => setAnchorElNav(event.currentTarget)}
         color={"inherit"}
@@ -24,7 +24,6 @@ export default function MobileMenuLinks() {
         anchorEl={anchorElNav}
         open={Boolean(anchorElNav)}
         onClose={() => setAnchorElNav(null)}
-        sx={mobileMenuLinksStyle}
       >
         {links.map((link) => (
           <MenuItem
