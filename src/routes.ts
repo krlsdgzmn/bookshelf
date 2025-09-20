@@ -3,13 +3,11 @@ import Layout from "./Layout";
 import AboutPage from "./pages/AboutPage";
 import BrowsePage from "./pages/BrowsePage";
 import ErrorPage from "./pages/ErrorPage";
-import HomePage from "./pages/HomePage";
 import RandomPage from "./pages/RandomPage";
 import TrendingPage from "./pages/TrendingPage";
 
 export const links = [
-  { path: "/", Component: HomePage, name: "Home" },
-  { path: "/trending", Component: TrendingPage, name: "Trending" },
+  { path: "/", Component: TrendingPage, name: "Trending" },
   { path: "/browse", Component: BrowsePage, name: "Browse" },
   { path: "/random", Component: RandomPage, name: "Random" },
   { path: "/about", Component: AboutPage, name: "About" },
