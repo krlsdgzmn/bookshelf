@@ -44,7 +44,7 @@ export default function BookCard(props: BookCardProps) {
             image={
               props.book.cover_i
                 ? `https://covers.openlibrary.org/b/id/${props.book.cover_i}-M.jpg`
-                : "https://placehold.co/800"
+                : `https://covers.openlibrary.org/b/id/${props.book.cover_id}-M.jpg`
             }
           />
 
@@ -53,7 +53,11 @@ export default function BookCard(props: BookCardProps) {
               {props.book.title}
             </Typography>
             <Typography variant="body2" sx={authorStyle} noWrap>
-              {`by ${props.book.author_name.flat().join(", ")}`}
+              {Array.isArray(props.book.author_name)
+                ? `By ${props.book.author_name.join(", ")}`
+                : Array.isArray(props.book.authors)
+                  ? `By ${props.book.authors.map((a) => a.name).join(", ")}`
+                  : "Unknown author"}
             </Typography>
 
             <Typography variant={"caption"} sx={publishStyle}>
