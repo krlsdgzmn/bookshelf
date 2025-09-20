@@ -12,8 +12,8 @@ export default function BookCardSkeleton(props: BookCardSkeletonProps) {
   return Array(props.isTrendingSection ? 12 : 6)
     .fill(null)
     .map((_, index) => (
-      <Grid size={{ xs: 6, sm: 4, md: 3, lg: 2 }}>
-        <Card key={index} sx={cardStyle}>
+      <Grid key={index} size={{ xs: 6, sm: 4, md: 3, lg: 2 }}>
+        <Card sx={cardStyle}>
           <Skeleton variant="rectangular" width={"100%"} height={140} />
           <CardContent sx={{ pt: 0.5 }}>
             {Array(4)
