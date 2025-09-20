@@ -1,5 +1,12 @@
-export const containerStyle = { minHeight: "100vh" };
-export const buttonStyle = { borderRadius: 4, paddingInline: 2 };
+export const containerStyle = {
+  minHeight: "100vh",
+  backgroundColor: { dark: "blue" },
+};
+export const buttonStyle = {
+  backgroundColor: "#9C9C9C",
+  borderRadius: 4,
+  paddingInline: 2,
+};
 export const pageBoxStyle = {
   display: "flex",
   flexDirection: "column",

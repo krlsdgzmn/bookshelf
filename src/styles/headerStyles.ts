@@ -42,5 +42,5 @@ export const linkStyle = {
 const { borderBottom, ...restLinkStyle } = linkStyle;
 export const activeLinkStyle = {
   ...restLinkStyle,
-  borderBottom: "2px solid rgba(137, 180, 250, 1)",
+  borderBottom: "2px solid #DDD",
 };
