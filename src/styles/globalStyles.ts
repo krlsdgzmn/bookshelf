@@ -10,6 +10,6 @@ export const buttonStyle = {
 export const pageBoxStyle = {
   display: "flex",
   flexDirection: "column",
-  padding: 3,
+  padding: { xs: 1, md: 3 },
   gap: 3,
 };
