@@ -15,6 +15,7 @@ export default function DesktopLinks() {
     <Box sx={desktopLinksStyle}>
       {links.map((link) => (
         <Typography
+          key={link.path}
           component={Link}
           to={link.path}
           style={location.pathname === link.path ? activeLinkStyle : linkStyle}
