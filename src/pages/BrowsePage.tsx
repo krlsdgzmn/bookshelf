@@ -9,7 +9,10 @@ import Section from "../components/Section";
 import { buttonStyle, pageBoxStyle } from "../styles/globalStyles";
 import {
   headerStyle,
+  noBooksFoundStyle,
+  searchBoxStyle,
   subtitleStyle,
+  textFieldStyle,
   titleStyle,
 } from "../styles/randomPageStyles";
 import type { Book } from "../types";
@@ -21,7 +24,7 @@ export default function BrowsePage() {
   const [error, setError] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
 
-  async function handleSearch() {
+  function handleSearch() {
     if (!query.trim()) return;
 
     setIsLoading(true);
@@ -49,14 +52,14 @@ export default function BrowsePage() {
           Search for books by title, author, or keyword.
         </Typography>
 
-        <Box sx={{ display: "flex", gap: 2 }}>
+        <Box sx={searchBoxStyle}>
           <TextField
             placeholder="Enter search query..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            onKeyPress={(e) => e.key === "Enter" && handleSearch()}
+            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
             variant="standard"
-            sx={{ width: { xs: "200px", md: "250px" } }}
+            sx={textFieldStyle}
           />
           <Button variant="contained" onClick={handleSearch} sx={buttonStyle}>
             Search
@@ -72,7 +75,7 @@ export default function BrowsePage() {
       />
 
       {!isLoading && hasSearched && books.length === 0 && !error && (
-        <Typography sx={{ textAlign: "center", mt: 4 }}>
+        <Typography sx={noBooksFoundStyle}>
           No books found for "{query}". Try a different search.
         </Typography>
       )}

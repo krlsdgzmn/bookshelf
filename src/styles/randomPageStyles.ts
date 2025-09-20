@@ -13,3 +13,6 @@ export const subtitleStyle = {
   color: "text.secondary",
   fontSize: { xs: "0.85rem", sm: "1rem", md: "1.25rem" },
 };
+export const searchBoxStyle = { display: "flex", gap: 2 };
+export const textFieldStyle = { width: { xs: "200px", md: "250px" } };
+export const noBooksFoundStyle = { textAlign: "center", mt: 4 };
