@@ -1,55 +1,25 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import axios, { AxiosError } from "axios";
-import { useState } from "react";
 import FetchError from "../components/FetchError";
 import Section from "../components/Section";
+import { useRandom } from "../hooks/useRandom";
 import { buttonStyle, pageBoxStyle } from "../styles/globalStyles";
 import {
   headerStyle,
   subtitleStyle,
   titleStyle,
 } from "../styles/randomPageStyles";
-import type { Book } from "../types";
 
 export default function RandomPage() {
-  const [randomBooks, setRandomBooks] = useState<Book[]>([]);
-  const [currentSubjectIndex, setCurrentSubjectIndex] = useState(-1);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const subjects = [
-    "Fiction",
-    "Science",
-    "History",
-    "Mystery",
-    "Romance",
-    "Fantasy",
-    "Biography",
-    "Adventure",
-    "Thriller",
-    "Comedy",
-    "Drama",
-    "Poetry",
-  ];
-
-  function fetchRandomBooks() {
-    setIsLoading(true);
-    setError("");
-    const nextIndex = (currentSubjectIndex + 1) % subjects.length;
-    setCurrentSubjectIndex(nextIndex);
-    const subject = subjects[nextIndex];
-
-    axios({
-      url: "https://openlibrary.org/search.json",
-      method: "GET",
-      params: { limit: 12, subject: subject.toLowerCase() },
-    })
-      .then((res) => setRandomBooks(res.data.docs))
-      .catch((err: AxiosError) => setError(err.message))
-      .finally(() => setIsLoading(false));
-  }
+  const {
+    randomBooks,
+    subjects,
+    currentSubjectIndex,
+    fetchRandomBooks,
+    isLoading,
+    error,
+  } = useRandom();
 
   if (!isLoading && error) return <FetchError error={error} />;
 

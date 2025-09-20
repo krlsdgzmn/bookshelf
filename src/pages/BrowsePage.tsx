@@ -2,10 +2,9 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import axios, { AxiosError } from "axios";
-import { useState } from "react";
 import FetchError from "../components/FetchError";
 import Section from "../components/Section";
+import { useBrowse } from "../hooks/useBrowse";
 import { buttonStyle, pageBoxStyle } from "../styles/globalStyles";
 import {
   headerStyle,
@@ -15,31 +14,17 @@ import {
   textFieldStyle,
   titleStyle,
 } from "../styles/randomPageStyles";
-import type { Book } from "../types";
 
 export default function BrowsePage() {
-  const [query, setQuery] = useState("");
-  const [books, setBooks] = useState<Book[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [hasSearched, setHasSearched] = useState(false);
-
-  function handleSearch() {
-    if (!query.trim()) return;
-
-    setIsLoading(true);
-    setError("");
-    setHasSearched(true);
-
-    axios({
-      url: "https://openlibrary.org/search.json",
-      method: "GET",
-      params: { limit: 24, q: query },
-    })
-      .then((res) => setBooks(res.data.docs))
-      .catch((err: AxiosError) => setError(err.message))
-      .finally(() => setIsLoading(false));
-  }
+  const {
+    query,
+    books,
+    isLoading,
+    error,
+    handleSearch,
+    hasSearched,
+    setQuery,
+  } = useBrowse();
 
   if (!isLoading && error) return <FetchError error={error} />;
 
