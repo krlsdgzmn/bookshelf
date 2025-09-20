@@ -1,6 +1,7 @@
 import Container from "@mui/material/Container";
 import { Outlet } from "react-router";
 import Header from "./components/Header";
+import { containerStyle } from "./styles/globalStyles";
 
 export default function Layout() {
   return (
@@ -10,5 +11,3 @@ export default function Layout() {
     </Container>
   );
 }
-
-const containerStyle = { minHeight: "100vh" };
