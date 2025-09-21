@@ -26,6 +26,5 @@ export const descriptionsBoxStyle = {
 export const skeletonBoxStyle = {
   width: { xs: "100%", md: "50%" },
   height: "500px",
-  bgcolor: "yellow",
 };
 export const skeletonDetailsStyle = { paddingTop: 0.5, width: "100%" };
