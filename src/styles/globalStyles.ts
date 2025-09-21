@@ -1,6 +1,7 @@
 export const containerStyle = {
   minHeight: "100vh",
   backgroundColor: { dark: "blue" },
+  paddingBottom: 8,
 };
 export const buttonStyle = {
   backgroundColor: "#9C9C9C",
