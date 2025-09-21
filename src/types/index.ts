@@ -10,3 +10,8 @@ export type Book = {
   key: string;
   title: string;
 };
+
+export type BookDetails = {
+  description: string;
+  subjects: string[];
+};
