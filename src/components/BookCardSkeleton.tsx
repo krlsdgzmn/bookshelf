@@ -4,6 +4,11 @@ import Grid from "@mui/material/Grid";
 import Skeleton from "@mui/material/Skeleton";
 import { cardStyle } from "../styles/bookCardStyles";
 
+import Box from '@mui/material/Box';
+import CardMedia from '@mui/material/CardMedia';
+import IconButton from '@mui/material/IconButton';
+import Close from '@mui/icons-material/Close';
+
 interface BookCardSkeletonProps {
   isTrendingSection: boolean;
 }

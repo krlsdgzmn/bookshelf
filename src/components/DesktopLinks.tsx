@@ -8,6 +8,12 @@ import {
   linkStyle,
 } from "../styles/headerStyles";
 
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import IconButton from '@mui/material/IconButton';
+import Skeleton from '@mui/material/Skeleton';
+import Close from '@mui/icons-material/Close';
+
 export default function DesktopLinks() {
   const location = useLocation();
 

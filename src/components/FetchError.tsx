@@ -3,6 +3,12 @@ import Typography from "@mui/material/Typography";
 import axios, { AxiosError } from "axios";
 import { errorBoxStyle } from "../styles/errorPageStyles";
 
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import IconButton from '@mui/material/IconButton';
+import Skeleton from '@mui/material/Skeleton';
+import Close from '@mui/icons-material/Close';
+
 interface FetchErrorProps {
   error: Error | AxiosError | unknown;
 }
